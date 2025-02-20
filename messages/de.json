@@ -43,7 +43,9 @@
         "dark": "Dunkel",
         "system": "System"
       },
-      "settings": "Einstellungen"
+      "settings": "Einstellungen",
+      "loading": "Lade...",
+      "error-loading": "Fehler beim Laden der Daten"
     },
     "header": {},
     "footer": {
@@ -73,7 +75,117 @@
       "linkText": "Bitbucket Support"
     },
     "qx": {
-      "title": "QX Explorer"
+      "title": "Explorer",
+      "trades": "Trades",
+      "transactions": "Transactions",
+      "assetDetailTitle": "Asset Details",
+      "assetsTitle": "QX-Vermögenswerte",
+      "smartContractAssets": "Smart-Contract-Anteile",
+      "tokens": "Tokens",
+      "orderBookTitle": "RANDOM Orderbuch",
+      "nameLabel": "Name",
+      "issuerLabel": "Emittent",
+      "chartTitle": "Diagramm (Durchschnittspreis)",
+      "askOrdersTitle": "Offene Verkaufsaufträge",
+      "bidOrdersTitle": "Offene Kaufaufträge",
+      "askOrdersTable": {
+        "entity": "Entität",
+        "amount": "Betrag",
+        "price": "Preis (QUBIC)",
+        "total": "Gesamt (QUBIC)"
+      },
+      "bidOrdersTable": {
+        "entity": "Entität",
+        "amount": "Betrag",
+        "price": "Preis (QUBIC)",
+        "total": "Gesamt (QUBIC)"
+      },
+      "tradesTitle": "Handel",
+      "tradesTable": {
+        "asset": "Vermögenswert",
+        "side": "Seite",
+        "price": "Preis (QUBIC)",
+        "amount": "Betrag",
+        "total": "Gesamt (QUBIC)",
+        "hash": "Hash",
+        "taker": "Taker",
+        "maker": "Maker",
+        "datetime": "Datum & Uhrzeit"
+      },
+      "transfersTitle": "Vermögensübertragungen",
+      "transfersTable": {
+        "asset": "Vermögenswert",
+        "amount": "Betrag",
+        "tick": "Tick",
+        "hash": "Hash",
+        "from": "Von",
+        "to": "An",
+        "datetime": "Datum & Uhrzeit"
+      },
+      "trade": {
+        "asset": "Vermögenswert",
+        "side": "Seite",
+        "price": "Preis (QUBIC)",
+        "amount": "Betrag",
+        "total": "Gesamt (QUBIC)",
+        "hash": "Hash",
+        "taker": "Taker",
+        "maker": "Maker",
+        "datetime": "Datum & Uhrzeit",
+        "buy": "Kaufen",
+        "sell": "Verkaufen"
+      },
+      "issuedAssets": "Neueste ausgegebene Vermögenswerte",
+      "issued": {
+        "asset": "Vermögenswert",
+        "issuer": "Emittent",
+        "amount": "Betrag",
+        "tick": "Tick",
+        "hash": "Hash",
+        "datetime": "Datum & Uhrzeit"
+      },
+      "transfers": "Neueste Vermögensübertragungen",
+      "transfer": {
+        "asset": "Vermögenswert",
+        "amount": "Betrag",
+        "tick": "Tick",
+        "hash": "Hash",
+        "from": "Von",
+        "to": "An",
+        "datetime": "Datum & Uhrzeit"
+      }
+    },
+    "issuedAssets": "Neueste ausgegebene Vermögenswerte",
+    "issued": {
+      "asset": "Vermögenswert",
+      "issuer": "Emittent",
+      "amount": "Betrag",
+      "tick": "Tick",
+      "hash": "Hash",
+      "datetime": "Datum & Uhrzeit"
+    },
+    "transfers": "Neueste Vermögensübertragungen",
+    "transfer": {
+      "asset": "Vermögenswert",
+      "amount": "Betrag",
+      "tick": "Tick",
+      "hash": "Hash",
+      "from": "Von",
+      "to": "An",
+      "datetime": "Datum & Uhrzeit"
+    },
+    "trade": {
+      "asset": "Vermögenswert",
+      "side": "Seite",
+      "price": "Preis (QUBIC)",
+      "amount": "Betrag",
+      "total": "Gesamt (QUBIC)",
+      "hash": "Hash",
+      "taker": "Taker",
+      "maker": "Maker",
+      "datetime": "Datum & Uhrzeit",
+      "buy": "Kaufen",
+      "sell": "Verkaufen"
     },
     "faq": {
       "title": "FAQ",

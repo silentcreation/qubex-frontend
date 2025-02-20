@@ -43,7 +43,9 @@
         "dark": "Dark",
         "system": "System"
       },
-      "settings": "Settings"
+      "settings": "Settings",
+      "loading": "Loading...",
+      "error-loading": "Error loading data"
     },
     "header": {},
     "footer": {
@@ -73,7 +75,117 @@
       "to": "To"
     },
     "qx": {
-      "title": "QX Explorer"
+      "title": "Explorer",
+      "trades": "Trades",
+      "transactions": "Transactions",
+      "assetDetailTitle": "Asset Details",
+      "assetsTitle": "Assets",
+      "smartContractAssets": "Smart Contract Assets",
+      "tokens": "Tokens",
+      "orderBookTitle": "RANDOM Order Book",
+      "nameLabel": "Name",
+      "issuerLabel": "Issuer",
+      "chartTitle": "Chart (Average Price)",
+      "askOrdersTitle": "Open Sell Orders",
+      "bidOrdersTitle": "Open Buy Orders",
+      "askOrdersTable": {
+        "entity": "Entity",
+        "amount": "Amount",
+        "price": "Price (QUBIC)",
+        "total": "Total (QUBIC)"
+      },
+      "bidOrdersTable": {
+        "entity": "Entity",
+        "amount": "Amount",
+        "price": "Price (QUBIC)",
+        "total": "Total (QUBIC)"
+      },
+      "tradesTitle": "Trades",
+      "tradesTable": {
+        "asset": "Asset",
+        "side": "Side",
+        "price": "Price (QUBIC)",
+        "amount": "Amount",
+        "total": "Total (QUBIC)",
+        "hash": "Hash",
+        "taker": "Taker",
+        "maker": "Maker",
+        "datetime": "Date & Time"
+      },
+      "transfersTitle": "Asset Transfers",
+      "transfersTable": {
+        "asset": "Asset",
+        "amount": "Amount",
+        "tick": "Tick",
+        "hash": "Hash",
+        "from": "From",
+        "to": "To",
+        "datetime": "Date & Time"
+      },
+      "trade": {
+        "asset": "Asset",
+        "side": "Side",
+        "price": "Price (QUBIC)",
+        "amount": "Amount",
+        "total": "Total (QUBIC)",
+        "hash": "Hash",
+        "taker": "Taker",
+        "maker": "Maker",
+        "datetime": "Date & Time",
+        "buy": "Buy",
+        "sell": "Sell"
+      },
+      "issuedAssets": "Latest Issued Assets",
+      "issued": {
+        "asset": "Asset",
+        "issuer": "Issuer",
+        "amount": "Amount",
+        "tick": "Tick",
+        "hash": "Hash",
+        "datetime": "Date & Time"
+      },
+      "transfers": "Latest Transfers",
+      "transfer": {
+        "asset": "Asset",
+        "amount": "Amount",
+        "tick": "Tick",
+        "hash": "Hash",
+        "from": "From",
+        "to": "To",
+        "datetime": "Date & Time"
+      }
+    },
+    "issuedAssets": "Latest Issued Assets",
+    "issued": {
+      "asset": "Asset",
+      "issuer": "Issuer",
+      "amount": "Amount",
+      "tick": "Tick",
+      "hash": "Hash",
+      "datetime": "Date & Time"
+    },
+    "transfers": "Latest Transfers",
+    "transfer": {
+      "asset": "Asset",
+      "amount": "Amount",
+      "tick": "Tick",
+      "hash": "Hash",
+      "from": "From",
+      "to": "To",
+      "datetime": "Date & Time"
+    },
+    "trade": {
+      "asset": "Asset",
+      "side": "Side",
+      "price": "Price (QUBIC)",
+      "amount": "Amount",
+      "total": "Total (QUBIC)",
+      "hash": "Hash",
+      "taker": "Taker",
+      "maker": "Maker",
+      "datetime": "Date & Time",
+      "buy": "Buy",
+      "sell": "Sell"
     },
     "faq": {
       "title": "FAQ",

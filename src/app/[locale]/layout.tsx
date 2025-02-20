@@ -29,12 +29,17 @@ export default async function RootLayout(props: {
 
   const messages = await getMessages();
 
+//   <html
+//   lang={locale}
+//   suppressHydrationWarning
+//   className="light"
+//   style={{ colorScheme: "light" }}
+// >
+
   return (
     <html
       lang={locale}
       suppressHydrationWarning
-      className="light"
-      style={{ colorScheme: "light" }}
     >
       <head>
         <meta charSet="utf-8" />
