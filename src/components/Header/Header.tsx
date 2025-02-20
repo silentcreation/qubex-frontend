@@ -57,23 +57,6 @@ export default function Header() {
     }
   };
 
-  const invokeSnapMethod = async () => {
-    if (window.ethereum && SNAP_ID) {
-      try {
-        const result = await window.ethereum.request({
-          method: "wallet_invokeSnap",
-          params: {
-            snapId: SNAP_ID,
-            request: { method: "getPublicId", params: { accountIdx: 0, confirm: true } },
-          },
-        });
-        console.log("Snap method result:", result);
-      } catch (error) {
-        console.error("Error invoking snap method:", error);
-      }
-    }
-  };
-
   const copyAddress = () => {
     if (address) {
       navigator.clipboard.writeText(address);

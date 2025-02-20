@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Header from "@/components/Header/Header";
 import Footer from "@/components/Footer/Footer";
 import Providers from "./Providers.client";
+import TopLoadingBar from "@/components/TopLoadingBar"; // Client Component
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages } from "next-intl/server";
 import { notFound } from "next/navigation";
@@ -42,6 +43,7 @@ export default async function RootLayout(props: {
       <body className="min-h-screen flex flex-col">
         <NextIntlClientProvider messages={messages}>
           <Providers>
+            <TopLoadingBar />
             <Header />
             <main className="flex-grow">
               {children}
