@@ -1,0 +1,94 @@
+{
+  "qubex": {
+    "global": {
+      "page-title": "Qubex (DE)",
+      "lang-switcher": {
+        "title": "Sprache",
+        "en": "Englisch",
+        "de": "Deutsch"
+      },
+      "wallet": {
+        "connect": "Wallet verbinden",
+        "disconnect": "Trennen",
+        "select": "Wallet auswählen",
+        "cancel": "Abbrechen",
+        "connecting": "Versuche Verbindung mit:",
+        "not-ready": "Nicht bereit – Wallet vermutlich nicht installiert:"
+      },
+      "navigation": {
+        "pool": "Liquiditätspool",
+        "swap": "Tauschen",
+        "qx-explorer": "QX Explorer",
+        "faq": "FAQ"
+      },
+      "snap": {
+        "install": "QUBIC Snap installieren",
+        "installed": "QUBIC Snap installiert",
+        "test-link": "Test QUBIC SNAP"
+      },
+      "currencies": {
+        "qubic": "QUBIC",
+        "eth": "ETH",
+        "usdc": "USDC",
+        "usdt": "USDT"
+      },
+      "sidebar": {
+        "title": "Einstellungen",
+        "language": "Sprache",
+        "theme": "Theme",
+        "close": "Schließen",
+        "en": "Englisch",
+        "de": "Deutsch",
+        "light": "Hell",
+        "dark": "Dunkel",
+        "system": "System"
+      },
+      "settings": "Einstellungen"
+    },
+    "header": {},
+    "footer": {
+      "copyright": "Qubex. Alle Rechte vorbehalten.",
+      "privacy": "Datenschutzerklärung",
+      "terms": "Nutzungsbedingungen",
+      "about": "Über uns",
+      "support": "Support",
+      "imprint": "Impressum"
+    },
+    "pool": {
+      "title": "Liquiditätspool",
+      "headline": "Text Tauschen"
+    },
+    "swap": {
+      "title": "Tauschen",
+      "headline": "Text Tauschen",
+      "button": "Tauschen",
+      "switch": "Wechseln",
+      "amount": "Betrag",
+      "from": "Von",
+      "to": "Zu"
+    },
+    "support": {
+      "title": "Support",
+      "description": "Wenn Sie Unterstützung benötigen, besuchen Sie bitte unsere Support-Seite.",
+      "linkText": "Bitbucket Support"
+    },
+    "qx": {
+      "title": "QX Explorer"
+    },
+    "faq": {
+      "title": "FAQ",
+      "questions": {
+        "question1": "Was ist QUBEX?",
+        "answer1": "QUBEX ist eine Plattform für den Austausch digitaler Vermögenswerte.",
+        "question2": "Wie funktioniert der QUBIC Snap?",
+        "answer2": "Der QUBIC Snap ermöglicht die Interaktion mit der QUBIC-Blockchain über MetaMask.",
+        "question3": "Welche Vorteile bietet QUBEX?",
+        "answer3": "QUBEX bietet einfache und sichere Transaktionen sowie Cross-Chain-Unterstützung.",
+        "question4": "Wie kann ich starten?",
+        "answer4": "Verbinde deine Wallet, installiere den QUBIC Snap und beginne mit dem Tausch von Vermögenswerten.",
+        "question5": "Wo finde ich weitere Informationen?",
+        "answer5": "Weitere Details findest du in der Dokumentation und auf unserer Website."
+      }
+    }
+  }
+}

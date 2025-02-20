@@ -1,0 +1,101 @@
+image: node:18
+
+pipelines:
+  branches:
+    develop:
+      - step:
+          name: 'Build and Package Application'
+          caches:
+            - node
+          script:
+            - echo 'Building application...'
+            - npm ci
+            - echo 'Creating .env.development file...'
+            - |
+              echo "NODE_ENV=development
+              " > .env.development
+              # Fügen Sie hier weitere Variablen aus Bitbucket hinzu
+              echo "API_URL=${API_URL}
+              " >> .env.development
+            - tar -czf app.tar.gz .env.development package.json ecosystem.config.js
+          artifacts:
+            - app.tar.gz
+      - parallel:
+          - step:
+              name: 'Deploy to EU Droplet'
+              deployment: development
+              script:
+                - export APP_NAME='app-qubex-eu'
+                - export APP_CWD='/var/www/app-eu.qubex'
+                - export NODE_ENV='development'
+                - echo 'Deploying to EU Droplet...'
+                - pipe: atlassian/scp-deploy:1.1.0
+                  variables:
+                    USER: 'deploy-user'  # Ersetzen Sie 'deploy-user' durch Ihren tatsächlichen Benutzernamen
+                    SERVER: '164.90.236.153'
+                    REMOTE_PATH: '/var/www/app-eu.qubex'
+                    LOCAL_PATH: 'app.tar.gz'
+                    SSH_KEY: $SSH_PRIVATE_KEY
+                - ssh -o StrictHostKeyChecking=no deploy-user@164.90.236.153 '
+                    cd /var/www/app-eu.qubex &&
+                    tar -xzf app.tar.gz &&
+                    npm ci &&
+                    pm2 startOrReload ecosystem.config.js --update-env
+                  '
+          - step:
+              name: 'Deploy to US Droplet'
+              deployment: development
+              script:
+                - export APP_NAME='app-qubex-us'
+                - export APP_CWD='/var/www/app-us.qubex'
+                - export NODE_ENV='development'
+                - echo 'Creating .env.development file for US Droplet...'
+                - |
+                  echo "NODE_ENV=development
+                  API_URL=${API_URL_US}
+                  " > .env.development
+                - tar -czf app-us.tar.gz .env.development package.json ecosystem.config.js
+                - echo 'Deploying to US Droplet...'
+                - pipe: atlassian/scp-deploy:1.1.0
+                  variables:
+                    USER: 'deploy-user'
+                    SERVER: '64.23.223.144'
+                    REMOTE_PATH: '/var/www/app-us.qubex'
+                    LOCAL_PATH: 'app-us.tar.gz'
+                    SSH_KEY: $SSH_PRIVATE_KEY
+                - ssh -o StrictHostKeyChecking=no deploy-user@64.23.223.144 '
+                    cd /var/www/app-us.qubex &&
+                    tar -xzf app-us.tar.gz &&
+                    npm ci &&
+                    pm2 startOrReload ecosystem.config.js --update-env
+                  '
+          - step:
+              name: 'Deploy to AS Droplet'
+              deployment: development
+              script:
+                - export APP_NAME='app-qubex-as'
+                - export APP_CWD='/var/www/app-as.qubex'
+                - export NODE_ENV='development'
+                - echo 'Creating .env.development file for AS Droplet...'
+                - |
+                  echo "NODE_ENV=development
+                  API_URL=${API_URL_AS}
+                  " > .env.development
+                - tar -czf app-as.tar.gz .env.development package.json ecosystem.config.js
+                - echo 'Deploying to AS Droplet...'
+                - pipe: atlassian/scp-deploy:1.1.0
+                  variables:
+                    USER: 'deploy-user'
+                    SERVER: '143.198.195.191'
+                    REMOTE_PATH: '/var/www/app-as.qubex'
+                    LOCAL_PATH: 'app-as.tar.gz'
+                    SSH_KEY: $SSH_PRIVATE_KEY
+                - ssh -o StrictHostKeyChecking=no deploy-user@143.198.195.191 '
+                    cd /var/www/app-as.qubex &&
+                    tar -xzf app-as.tar.gz &&
+                    npm ci &&
+                    pm2 startOrReload ecosystem.config.js --update-env
+                  '
+definitions:
+  caches:
+    node: ~/.npm

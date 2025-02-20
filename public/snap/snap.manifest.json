@@ -1,0 +1,34 @@
+{
+  "version": "0.0.2",
+  "description": "Manage Qubic assets and connect to Qubic apps with MetaMask.",
+  "proposedName": "Qubic Connect",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/qubic/qubic-mm-snap.git"
+  },
+  "source": {
+    "shasum": "uRNCEQb3ihi9jpYkcb5MmPHRMqQS9NhBzvP/oG6hp3I=",
+    "location": {
+      "npm": {
+        "filePath": "dist/bundle.js",
+        "iconPath": "logo.svg",
+        "packageName": "@qubic-lib/qubic-mm-snap",
+        "registry": "https://registry.npmjs.org"
+      }
+    }
+  },
+  "initialPermissions": {
+    "endowment:rpc": {
+      "dapps": true,
+      "snaps": false
+    },
+    "snap_dialog": {},
+    "endowment:webassembly": {},
+    "snap_getBip44Entropy": [
+      {
+        "coinType": 83293
+      }
+    ]
+  },
+  "manifestVersion": "0.1"
+}
