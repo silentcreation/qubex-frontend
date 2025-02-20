@@ -48,11 +48,11 @@ const QXAssetDetailPage: React.FC = () => {
           chartDataResp
         ] = await Promise.all([
           getIssuedAssets(),
-          getAssetAskOrders({ issuer, asset: name }),
-          getAssetBidOrders({ issuer, asset: name }),
-          getAssetTrades({ issuer, asset: name }),
-          getAssetTransfers({ issuer, asset: name }),
-          getAssetChartAveragePrice({ issuer, asset: name })
+          getAssetAskOrders({ issuer: issuer as string, asset: name as string }),
+          getAssetBidOrders({ issuer: issuer as string, asset: name as string }),
+          getAssetTrades({ issuer: issuer as string, asset: name as string }),
+          getAssetTransfers({ issuer: issuer as string, asset: name as string }),
+          getAssetChartAveragePrice({ issuer: issuer as string, asset: name as string })
         ]);
         console.log("issuedAssets:", issuedAssets);
         console.log("asks:", asks);
@@ -61,7 +61,7 @@ const QXAssetDetailPage: React.FC = () => {
         console.log("transfersData:", transfersData);
         console.log("chartDataResp:", chartDataResp);
         const assetData = issuedAssets.find(
-          (a) => a.extraData.name.toUpperCase() === name.toUpperCase()
+          (a) => a.extraData.name.toUpperCase() === (name as string).toUpperCase()
         );
         console.log("Filtered assetData:", assetData);
         setAsset(assetData || null);
@@ -133,8 +133,8 @@ const QXAssetDetailPage: React.FC = () => {
     <div className="container mx-auto py-4">
       <h1 className="text-2xl font-bold mb-4">{t("qx.orderBookTitle") || "QTRY Order Book"}</h1>
       <div className="p-4 border rounded mb-4">
-        <p><strong>Name:</strong> {name}</p>
-        <p><strong>Issuer:</strong> {issuer}</p>
+        <p><strong>Name:</strong> {name as string}</p>
+        <p><strong>Issuer:</strong> {issuer as string}</p>
       </div>
       {chartData.length > 0 && (
         <div className="mb-4">
@@ -263,7 +263,7 @@ const QXAssetDetailPage: React.FC = () => {
             <tbody>
               {transfers.map((transfer) => (
                 <tr key={transfer.hash}>
-                  <td className="border px-4 py-2">{name}</td>
+                  <td className="border px-4 py-2">{name as string}</td>
                   <td className="border px-4 py-2">{transfer.amount.toLocaleString()}</td>
                   <td className="border px-4 py-2">{transfer.tick}</td>
                   <td className="border px-4 py-2">

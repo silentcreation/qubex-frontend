@@ -2,7 +2,16 @@
 
 import React, { useEffect, useState } from "react";
 import { useT } from "@/hooks/useT";
-import { getIssuedAssets, IssuedAsset, getTransfers, Transfer } from "@/api/qx";
+import { getIssuedAssets, getTransfers } from "@/api/qx";
+import type {
+  Asset,
+  AssetOrder,
+  AveragePrice,
+  EntityOrder,
+  IssuedAsset,
+  Trade,
+  Transfer
+} from '@/api/qx.types';
 import { formatNumber } from "@/utils/numberFormatter";
 
 const abbreviate = (str: string, front = 6, back = 4) => {

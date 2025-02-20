@@ -2,7 +2,8 @@
 
 import React, { useEffect, useState } from "react";
 import { useT } from "@/hooks/useT";
-import { getAssets, Asset } from "@/api/qx";
+import { getAssets } from "@/api/qx";
+import type { Asset } from "@/api/qx.types";
 import { Link } from "@/i18n/routing";
 
 const SMART_CONTRACT_ISSUER = "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFXIB";

@@ -2,27 +2,54 @@
 
 import React, { useEffect, useState } from "react";
 import { useT } from "@/hooks/useT";
-import { getTradeDetail, TradeDetail } from "@/api/qx"; // Stelle sicher, dass diese API-Funktion existiert
+import { getEntityTrades } from "@/api/qx";
+import type {
+  Asset,
+  AssetOrder,
+  AveragePrice,
+  EntityOrder,
+  IssuedAsset,
+  Trade,
+  Transfer
+} from '@/api/qx.types';
 import { formatNumber } from "@/utils/numberFormatter";
 
 interface PageProps {
-  params: {
+  params: Promise<{
     locale: string;
     transactionHash: string;
-  };
+  }>;
 }
 
 const QXTradeDetailPage: React.FC<PageProps> = ({ params }) => {
-  const { locale, transactionHash } = params;
+  const [resolvedParams, setResolvedParams] = useState<{
+    locale: string;
+    transactionHash: string;
+  } | null>(null);
+
+  useEffect(() => {
+    params.then((p) => setResolvedParams(p));
+  }, [params]);
+
   const t = useT();
   const [trade, setTrade] = useState<TradeDetail | null>(null);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<Error | null>(null);
 
+  if (!resolvedParams) {
+    return (
+      <div className="container mx-auto py-4">
+        <p>{t("global.loading")}</p>
+      </div>
+    );
+  }
+
+  const { locale, transactionHash } = resolvedParams;
+
   useEffect(() => {
     async function fetchTradeDetail() {
       try {
-        const data = await getTradeDetail(transactionHash);
+        const data = await getEntityTrades(transactionHash);
         setTrade(data);
       } catch (err) {
         setError(err as Error);
@@ -36,7 +63,9 @@ const QXTradeDetailPage: React.FC<PageProps> = ({ params }) => {
   if (isLoading) {
     return (
       <div className="container mx-auto py-4">
-        <h1 className="text-2xl font-bold mb-4">{t("qx.trade.detail") || "Trade Detail"}</h1>
+        <h1 className="text-2xl font-bold mb-4">
+          {t("qx.trade.detail") || "Trade Detail"}
+        </h1>
         <p>{t("global.loading")}</p>
       </div>
     );
@@ -45,15 +74,17 @@ const QXTradeDetailPage: React.FC<PageProps> = ({ params }) => {
   if (error || !trade) {
     return (
       <div className="container mx-auto py-4">
-        <h1 className="text-2xl font-bold mb-4">{t("qx.trade.detail") || "Trade Detail"}</h1>
+        <h1 className="text-2xl font-bold mb-4">
+          {t("qx.trade.detail") || "Trade Detail"}
+        </h1>
         <p>{t("global.error-loading")}</p>
       </div>
     );
   }
 
   const side = trade.bid
-    ? (t("qx.trade.buy") || "Kaufen")
-    : (t("qx.trade.sell") || "Verkaufen");
+    ? t("qx.trade.buy") || "Kaufen"
+    : t("qx.trade.sell") || "Verkaufen";
   const total = trade.price * trade.numberOfShares;
   const formattedPrice = formatNumber(trade.price);
   const formattedTotal = formatNumber(total);
@@ -62,7 +93,9 @@ const QXTradeDetailPage: React.FC<PageProps> = ({ params }) => {
 
   return (
     <div className="container mx-auto py-4">
-      <h1 className="text-2xl font-bold mb-4">{t("qx.trade.detail") || "Trade Detail"}</h1>
+      <h1 className="text-2xl font-bold mb-4">
+        {t("qx.trade.detail") || "Trade Detail"}
+      </h1>
       <div className="p-4 border rounded">
         <p>
           <strong>{t("qx.trade.asset") || "Vermögenswert"}:</strong> {trade.assetName}

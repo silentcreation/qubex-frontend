@@ -5,7 +5,9 @@ import { injected } from 'wagmi/connectors'
 // import { metaMask } from 'wagmi/connectors'
 import { walletConnect } from 'wagmi/connectors'
 
-const projectId = process.env.NEXT_PUBLIC_WALLETCONNECT_REOWN_PROJECT_ID;
+const projectId = process.env.NEXT_PUBLIC_WALLETCONNECT_REOWN_PROJECT_ID!;
+
+console.log("projectId", projectId)
 
 export const config = createConfig({
   chains: [mainnet, sepolia],

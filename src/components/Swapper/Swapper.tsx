@@ -2,7 +2,16 @@
 
 import React, { useState, useEffect } from "react";
 import { useT } from "@/hooks/useT";
-import { getAssets, Asset } from "@/api/qx";
+import { getAssets } from "@/api/qx";
+import type {
+  Asset,
+  AssetOrder,
+  AveragePrice,
+  EntityOrder,
+  IssuedAsset,
+  Trade,
+  Transfer
+} from '@/api/qx.types';
 import { FaArrowsAltH } from "react-icons/fa";
 
 export default function Swapper() {

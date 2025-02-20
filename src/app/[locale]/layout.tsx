@@ -18,29 +18,19 @@ export const metadata: Metadata = {
 
 export default async function RootLayout(props: {
   children: React.ReactNode;
-  params: { locale: string };
+  params: Promise<{ locale: string }>;
 }) {
   const { children } = props;
-  const { locale } = props.params;
+  const { locale } = await props.params;
 
-  if (!routing.locales.includes(locale)) {
+  if (!routing.locales.includes(locale as "en" | "de")) {
     notFound();
   }
 
   const messages = await getMessages();
 
-//   <html
-//   lang={locale}
-//   suppressHydrationWarning
-//   className="light"
-//   style={{ colorScheme: "light" }}
-// >
-
   return (
-    <html
-      lang={locale}
-      suppressHydrationWarning
-    >
+    <html lang={locale} suppressHydrationWarning>
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -50,9 +40,7 @@ export default async function RootLayout(props: {
           <Providers>
             <TopLoadingBar />
             <Header />
-            <main className="flex-grow">
-              {children}
-            </main>
+            <main className="flex-grow">{children}</main>
             <Footer />
           </Providers>
         </NextIntlClientProvider>

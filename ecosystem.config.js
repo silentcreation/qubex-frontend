@@ -3,7 +3,7 @@ module.exports = {
         {
             name: process.env.APP_NAME,
             script: 'node_modules/next/dist/bin/next',
-            args: 'dev',
+            args: 'start',
             cwd: process.env.APP_CWD,
             instances: 1,
             exec_mode: 'fork',

@@ -2,7 +2,17 @@
 
 import React, { useEffect, useState } from "react";
 import { useT } from "@/hooks/useT";
-import { getTrades, Trade } from "@/api/qx";
+import { getTrades } from "@/api/qx";
+import type {
+  Asset,
+  AssetOrder,
+  AveragePrice,
+  EntityOrder,
+  IssuedAsset,
+  Trade,
+  Transfer
+} from '@/api/qx.types'
+
 import { Link } from "@/i18n/routing";
 import { formatNumber } from "@/utils/numberFormatter";
 

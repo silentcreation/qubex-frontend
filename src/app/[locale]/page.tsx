@@ -1,10 +1,8 @@
 import { redirect } from "next/navigation";
 
 export default async function LocaleIndexPage(props: {
-  params: { locale: string };
+  params: Promise<{ locale: string }>;
 }) {
-  const resolvedParams = await Promise.resolve(props.params);
-  const { locale } = resolvedParams;
-  
+  const { locale } = await props.params;
   redirect(`/${locale}/swap`);
 }
