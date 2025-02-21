@@ -9,10 +9,8 @@ const Support: React.FC = () => {
 
   return (
     <div className="container mx-auto py-8">
-      <h1 className="text-3xl font-bold mb-4">{t("support.title") || "Support"}</h1>
-      <p className="mb-4">
-        {t("support.description") || "If you need assistance, please visit our support page."}
-      </p>
+      <h1 className="text-3xl font-bold mb-4">{t("support.title")}</h1>
+      <p className="mb-4">{t("support.description")}</p>
       <a
         href={supportUrl}
         target="_blank"

@@ -2,100 +2,65 @@ image: node:18
 
 pipelines:
   branches:
-    develop:
+    main:
       - step:
-          name: 'Build and Package Application'
+          name: "Build"
+          deployment: Production
           caches:
             - node
           script:
-            - echo 'Building application...'
-            - npm ci
-            - echo 'Creating .env.development file...'
-            - |
-              echo "NODE_ENV=development
-              " > .env.development
-              # Fügen Sie hier weitere Variablen aus Bitbucket hinzu
-              echo "API_URL=${API_URL}
-              " >> .env.development
-            - tar -czf app.tar.gz .env.development package.json ecosystem.config.js
+            - printf "NODE_ENV=${NODE_ENV}\nNEXT_PUBLIC_WALLETCONNECT_REOWN_PROJECT_ID=${NEXT_PUBLIC_WALLETCONNECT_REOWN_PROJECT_ID}\nNEXT_PUBLIC_SNAP_ID=${NEXT_PUBLIC_SNAP_ID}\nNEXT_PUBLIC_SNAP_ID_DEV=${NEXT_PUBLIC_SNAP_ID_DEV}\nNEXT_PUBLIC_SUPPORT_URL=${NEXT_PUBLIC_SUPPORT_URL}\nNEXT_PUBLIC_QX_API_URL=${NEXT_PUBLIC_QX_API_URL}\nPORT=${PORT_PRODUCTION}\n" > .env
+            - yarn install
+            - yarn build
           artifacts:
-            - app.tar.gz
-      - parallel:
-          - step:
-              name: 'Deploy to EU Droplet'
-              deployment: development
-              script:
-                - export APP_NAME='app-qubex-eu'
-                - export APP_CWD='/var/www/app-eu.qubex'
-                - export NODE_ENV='development'
-                - echo 'Deploying to EU Droplet...'
-                - pipe: atlassian/scp-deploy:1.1.0
-                  variables:
-                    USER: 'deploy-user'  # Ersetzen Sie 'deploy-user' durch Ihren tatsächlichen Benutzernamen
-                    SERVER: '164.90.236.153'
-                    REMOTE_PATH: '/var/www/app-eu.qubex'
-                    LOCAL_PATH: 'app.tar.gz'
-                    SSH_KEY: $SSH_PRIVATE_KEY
-                - ssh -o StrictHostKeyChecking=no deploy-user@164.90.236.153 '
-                    cd /var/www/app-eu.qubex &&
-                    tar -xzf app.tar.gz &&
-                    npm ci &&
-                    pm2 startOrReload ecosystem.config.js --update-env
-                  '
-          - step:
-              name: 'Deploy to US Droplet'
-              deployment: development
-              script:
-                - export APP_NAME='app-qubex-us'
-                - export APP_CWD='/var/www/app-us.qubex'
-                - export NODE_ENV='development'
-                - echo 'Creating .env.development file for US Droplet...'
-                - |
-                  echo "NODE_ENV=development
-                  API_URL=${API_URL_US}
-                  " > .env.development
-                - tar -czf app-us.tar.gz .env.development package.json ecosystem.config.js
-                - echo 'Deploying to US Droplet...'
-                - pipe: atlassian/scp-deploy:1.1.0
-                  variables:
-                    USER: 'deploy-user'
-                    SERVER: '64.23.223.144'
-                    REMOTE_PATH: '/var/www/app-us.qubex'
-                    LOCAL_PATH: 'app-us.tar.gz'
-                    SSH_KEY: $SSH_PRIVATE_KEY
-                - ssh -o StrictHostKeyChecking=no deploy-user@64.23.223.144 '
-                    cd /var/www/app-us.qubex &&
-                    tar -xzf app-us.tar.gz &&
-                    npm ci &&
-                    pm2 startOrReload ecosystem.config.js --update-env
-                  '
-          - step:
-              name: 'Deploy to AS Droplet'
-              deployment: development
-              script:
-                - export APP_NAME='app-qubex-as'
-                - export APP_CWD='/var/www/app-as.qubex'
-                - export NODE_ENV='development'
-                - echo 'Creating .env.development file for AS Droplet...'
-                - |
-                  echo "NODE_ENV=development
-                  API_URL=${API_URL_AS}
-                  " > .env.development
-                - tar -czf app-as.tar.gz .env.development package.json ecosystem.config.js
-                - echo 'Deploying to AS Droplet...'
-                - pipe: atlassian/scp-deploy:1.1.0
-                  variables:
-                    USER: 'deploy-user'
-                    SERVER: '143.198.195.191'
-                    REMOTE_PATH: '/var/www/app-as.qubex'
-                    LOCAL_PATH: 'app-as.tar.gz'
-                    SSH_KEY: $SSH_PRIVATE_KEY
-                - ssh -o StrictHostKeyChecking=no deploy-user@143.198.195.191 '
-                    cd /var/www/app-as.qubex &&
-                    tar -xzf app-as.tar.gz &&
-                    npm ci &&
-                    pm2 startOrReload ecosystem.config.js --update-env
-                  '
-definitions:
-  caches:
-    node: ~/.npm
+            - .next/**
+            - public/**
+            - next.config.js
+            - package.json
+            - yarn.lock
+            - .env
+
+      - step:
+          name: "Deploy to AS"
+          script:
+            - mkdir production-as
+            - mv .next/ .env next.config.js package.json public/ yarn.lock production-as
+            - ssh ${SERVER_USER}@${IP_AS} "test -d ${APP_PATH_AS} || mkdir -p ${APP_PATH_AS}"
+            - pipe: atlassian/rsync-deploy:0.6.0
+              variables:
+                USER: ${SERVER_USER}
+                SERVER: ${IP_AS}
+                REMOTE_PATH: "${APP_PATH_AS}/"
+                LOCAL_PATH: "production-as"
+            - ssh -tt ${SERVER_USER}@${IP_AS} "cd ${APP_PATH_AS}/ && printf \"module.exports={apps:[{name:'${BITBUCKET_REPO_SLUG}-production',exec_mode:'cluster',instances:2,script:'yarn',args:'start'}]}\" > ecosystem.config.js && yarn install --frozen-lockfile && pm2 start ecosystem.config.js"
+            - npx wait-on "http://${HOST_AS}:${PORT_PRODUCTION}/health" --timeout=120000
+
+      - step:
+          name: "Deploy to US"
+          script:
+            - mkdir production-us
+            - mv .next/ .env next.config.js package.json public/ yarn.lock production-us
+            - ssh ${SERVER_USER}@${IP_US} "test -d ${APP_PATH_US} || mkdir -p ${APP_PATH_US}"
+            - pipe: atlassian/rsync-deploy:0.6.0
+              variables:
+                USER: ${SERVER_USER}
+                SERVER: ${IP_US}
+                REMOTE_PATH: "${APP_PATH_US}/"
+                LOCAL_PATH: "production-us"
+            - ssh -tt ${SERVER_USER}@${IP_US} "cd ${APP_PATH_US}/ && printf \"module.exports={apps:[{name:'${BITBUCKET_REPO_SLUG}-production',exec_mode:'cluster',instances:2,script:'yarn',args:'start'}]}\" > ecosystem.config.js && yarn install --frozen-lockfile && pm2 start ecosystem.config.js"
+            - npx wait-on "http://${HOST_US}:${PORT_PRODUCTION}/health" --timeout=120000
+
+      - step:
+          name: "Deploy to EU"
+          script:
+            - mkdir production-eu
+            - mv .next/ .env next.config.js package.json public/ yarn.lock production-eu
+            - ssh ${SERVER_USER}@${IP_EU} "test -d ${APP_PATH_EU} || mkdir -p ${APP_PATH_EU}"
+            - pipe: atlassian/rsync-deploy:0.6.0
+              variables:
+                USER: ${SERVER_USER}
+                SERVER: ${IP_EU}
+                REMOTE_PATH: "${APP_PATH_EU}/"
+                LOCAL_PATH: "production-eu"
+            - ssh -tt ${SERVER_USER}@${IP_EU} "cd ${APP_PATH_EU}/ && printf \"module.exports={apps:[{name:'${BITBUCKET_REPO_SLUG}-production',exec_mode:'cluster',instances:2,script:'yarn',args:'start'}]}\" > ecosystem.config.js && yarn install --frozen-lockfile && pm2 start ecosystem.config.js"
+            - npx wait-on "http://${HOST_EU}:${PORT_PRODUCTION}/health" --timeout=120000

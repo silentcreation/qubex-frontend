@@ -62,8 +62,8 @@
     },
     "support": {
       "title": "Support",
-      "description": "If you need assistance, please visit our support page.",
-      "linkText": "Bitbucket Support"
+      "description": "Need Assistance? At Qubex, we’re here to help you navigate our platform effortlessly. Contact Us. Email: support@qubex.io. Help Center: Browse our FAQ and support articles for guidance on account setup, trading, fee details, and more.",
+      "linkText": "Visit Support Page"
     },
     "swap": {
       "title": "Swap",
@@ -188,19 +188,111 @@
       "sell": "Sell"
     },
     "faq": {
-      "title": "FAQ",
+      "title": "Frequently Asked Questions (FAQ)",
       "questions": {
-        "question1": "What is QUBEX?",
-        "answer1": "QUBEX is a platform for exchanging digital assets.",
-        "question2": "How does the QUBIC Snap work?",
-        "answer2": "The QUBIC Snap allows interaction with the QUBIC blockchain via MetaMask.",
-        "question3": "What are the benefits of QUBEX?",
-        "answer3": "QUBEX offers easy and secure transactions along with cross-chain support.",
-        "question4": "How can I get started?",
-        "answer4": "Connect your wallet, install the QUBIC Snap, and start swapping assets.",
-        "question5": "Where can I find more information?",
-        "answer5": "You can find more details in the documentation and on our website."
+        "question1": "What is Qubex?",
+        "answer1": "Qubex is a decentralized exchange (DEX) built within the Qubic ecosystem. It empowers you to trade assets and swap tokens—including USDT, USDC, ETH, and QUBIC—as well as exchange unique Qubic smart contract shares.",
+        "question2": "What tokens and trading pairs are supported?",
+        "answer2": "Initially, you can trade USDT, USDC, ETH, QUBIC, and Qubic smart contract shares. More trading pairs will be added as we continue to expand our ecosystem.",
+        "question3": "How do I start trading on Qubex?",
+        "answer3": "Simply connect a supported Web3 wallet (such as MetaMask or WalletConnect), select your desired trading pair, and initiate your swap using our streamlined interface.",
+        "question4": "What fees are applied on trades?",
+        "answer4": "A fee of 0.15% is charged per transaction. This fee is allocated as follows:\n• 5% to the Qubic Ecosystem Fund\n• 15% to support the Qubex platform\n• 80% to liquidity providers (subject to market conditions)",
+        "question5": "Is Qubex secure?",
+        "answer5": "Absolutely. We use industry-standard encryption, conduct regular security audits, and implement secure data storage practices to protect your transactions and personal information.",
+        "question6": "What does it mean that Qubex is in the development phase?",
+        "answer6": "Qubex is actively being built and refined. While many features are fully operational, some functionalities are still under development and will be updated as our platform evolves.",
+        "question7": "How do I connect my wallet?",
+        "answer7": "Click the 'Connect Wallet' button on our platform and follow the prompts to link your preferred Web3 wallet, like MetaMask or WalletConnect.",
+        "question8": "How is my personal data handled?",
+        "answer8": "We collect only essential data (such as wallet addresses and transaction details) and use robust security measures to safeguard your information. Your privacy is paramount.",
+        "question9": "Where can I get support if I have issues?",
+        "answer9": "Our support team is here to help. You can reach us via email at support@qubex.io, use our live chat feature during business hours, or visit our Help Center for additional guidance.",
+        "question10": "Why Qubic?",
+        "answer10": "Qubic is a cutting-edge blockchain ecosystem engineered for scalability, security, and interoperability. Its technical foundation includes advanced smart contract capabilities, decentralized oracle networks, and robust cryptographic protocols—all of which empower developers to build innovative and reliable decentralized applications. Moreover, Qubic is known for having one of the best and most supportive communities in the space, making it an ideal ecosystem to launch and grow new projects. For more technical details, please visit Qubic Docs.",
+        "question11": "What are smart contract shares?",
+        "answer11": "Smart contract shares represent fractionalized ownership or participation rights in Qubic’s smart contracts. They offer a novel way to engage with decentralized finance by allowing holders to trade, potentially earn dividends, and participate in the success of the underlying smart contracts. This innovative approach sets Qubex apart in the evolving DeFi landscape.",
+        "question12": "How can I stay updated on Qubex’s progress?",
+        "answer12": "Stay informed by following our official website, joining our X channel at https://x.com/QubexExchange, or connecting with our Qubic Discord community. There, you’ll receive the latest announcements, updates, and new feature releases. We also welcome your feedback as we continue to evolve.",
+        "question13": "Does Qubex have multiple addresses?",
+        "answer13": "No, Qubex uses a single platform address to ensure a consistent user experience.",
+        "question14": "Do you share my wallet information with others?",
+        "answer14": "No, your wallet information is only used for transaction purposes and is never shared with third parties.",
+        "question15": "What happens if I purchase QUBIC with my non-QUBIC wallet?",
+        "answer15": "If you purchase QUBIC with a non-QUBIC wallet, you will be prompted to additionally connect your QUBIC wallet."
       }
+    },
+    "about": {
+      "title": "About Us",
+      "welcome": "Welcome to Qubex",
+      "description": "Qubex is a community-driven decentralized exchange built within the Qubic ecosystem. Our platform empowers you to trade assets and swap tokens—including USDT, USDC, ETH, and QUBIC—as well as exchange the unique Qubic smart contract shares. With a commitment to innovation, we plan to continuously introduce new trading pairs and expand our offerings, including a future FIAT ramp for even greater flexibility.",
+      "missionTitle": "Our Mission",
+      "missionDescription": "We strive to deliver a secure, low-fee trading experience that not only meets current market needs but also evolves with them. A portion of every transaction fee (5%) is reinvested into the Qubic Ecosystem Fund to support ongoing growth and community development.",
+      "teamTitle": "The Team",
+      "team": {
+        "member1": "Robert Lisac: Driving technical excellence with 7+ years of blockchain innovation.",
+        "member2": "Alex Wild: Steering product strategy with deep expertise in finance and business development.",
+        "member3": "Johannes Just: TBD",
+        "member4": "Development & Design Teams: A dedicated group of blockchain developers and UX/UI experts committed to building a robust, user-friendly platform."
+      }
+    },
+    "privacyPolicy": {
+      "title": "Privacy Policy",
+      "subtitle": "Your Privacy, Our Priority",
+      "intro": "At Qubex, we respect your privacy and are committed to protecting your personal and transactional data. Even as we’re currently in the development phase, our practices are designed to align with the highest industry standards.",
+      "whatWeCollectTitle": "What We Collect",
+      "whatWeCollect": {
+        "userData": "User Data: Wallet addresses, email addresses, and any information you provide during platform interactions.",
+        "transactionData": "Transaction Data: Details of token swaps, asset trades, and interactions involving Qubic smart contract shares.",
+        "usageData": "Usage Data: Non-personal information to help us enhance platform performance and user experience."
+      },
+      "howWeUseTitle": "How We Use Your Information",
+      "howWeUse": [
+        "To facilitate secure asset trading and token exchanges.",
+        "To personalize and improve your experience on Qubex.",
+        "For security, analytics, and troubleshooting purposes."
+      ],
+      "securityMeasuresTitle": "Security Measures",
+      "securityMeasures": "We implement industry-standard encryption, regular audits, and secure offsite backups. Data is shared with trusted service providers only when necessary to optimize platform performance.",
+      "yourRightsTitle": "Your Rights",
+      "yourRights": "You can request access, correction, or deletion of your data at any time. Please contact our support team with any privacy concerns."
+    },
+    "terms": {
+      "title": "Terms & Conditions",
+      "subtitle": "Please Read Carefully",
+      "intro": "By using Qubex, you agree to our Terms & Conditions. These terms are designed to provide a safe, transparent, and fair trading environment.",
+      "usingQubexTitle": "Using Qubex",
+      "usingQubex": {
+        "access": "Access: The platform is accessible via supported Web3 wallets (e.g., MetaMask, WalletConnect).",
+        "responsibilities": "User Responsibilities: Users must comply with all applicable laws and use the platform responsibly.",
+        "risk": "Risk Acknowledgment: Cryptocurrency trading involves market volatility, technical risks, and potential financial loss. Please trade responsibly."
+      },
+      "tradingTitle": "Trading and Transactions",
+      "trading": {
+        "pairs": "Trading Pairs: Initially, Qubex supports trading between USDT, USDC, ETH, and QUBIC, as well as the exchange of Qubic smart contract shares. More trading pairs will be added in the future as we expand our ecosystem.",
+        "fee": "Fee Structure: A fee of 0.15% applies to every transaction:",
+        "feeBreakdown": {
+          "fund": "5% to the Qubic Ecosystem Fund",
+          "platform": "15% to support the Qubex platform",
+          "liquidity": "80% to liquidity providers (subject to market conditions)"
+        },
+        "noGuarantees": "No Guarantees: Qubex is provided “as is” without warranties. Trading involves inherent risks."
+      },
+      "disputeTitle": "Dispute Resolution",
+      "dispute": "Any disputes will be resolved through arbitration or an agreed process. By using Qubex, you accept these terms.",
+      "modificationsTitle": "Modifications",
+      "modifications": "We reserve the right to update these Terms & Conditions. Continued use of Qubex constitutes acceptance of any changes."
+    },
+    "imprint": {
+      "title": "Imprint",
+      "projectDetailsTitle": "Project Details",
+      "projectName": "Project Name: Qubex",
+      "platform": "Platform: A decentralized exchange within the Qubic ecosystem that offers asset trading, token swaps, and unique trading of Qubic smart contract shares.",
+      "team": "Team: Led by experienced professionals, including Robert Lisac and Alex Wild.",
+      "legalNoticeTitle": "Legal Notice",
+      "legalNotice": "Qubex is currently in the development phase and is not yet registered as a legal entity. Formal legal information and disclosures will be updated upon the establishment of our legal entity.",
+      "disclaimerTitle": "Disclaimer",
+      "disclaimer": "The information provided is for informational purposes only. Qubex does not accept liability for any inaccuracies or omissions. Use of the platform is at your own risk."
     }
   }
 }

@@ -71,8 +71,8 @@
     },
     "support": {
       "title": "Support",
-      "description": "Wenn Sie Unterstützung benötigen, besuchen Sie bitte unsere Support-Seite.",
-      "linkText": "Bitbucket Support"
+      "description": "Benötigen Sie Hilfe? Bei Qubex unterstützen wir Sie dabei, unsere Plattform mühelos zu nutzen. Kontaktieren Sie uns. E-Mail: support@qubex.io. Hilfe-Center: Durchsuchen Sie unsere FAQ und Support-Artikel für Anleitungen zur Kontoeinrichtung, zum Handel, zu Gebühren und mehr.",
+      "linkText": "Support-Seite besuchen"
     },
     "qx": {
       "title": "Explorer",
@@ -188,19 +188,111 @@
       "sell": "Verkaufen"
     },
     "faq": {
-      "title": "FAQ",
+      "title": "Häufig gestellte Fragen (FAQ)",
       "questions": {
-        "question1": "Was ist QUBEX?",
-        "answer1": "QUBEX ist eine Plattform für den Austausch digitaler Vermögenswerte.",
-        "question2": "Wie funktioniert der QUBIC Snap?",
-        "answer2": "Der QUBIC Snap ermöglicht die Interaktion mit der QUBIC-Blockchain über MetaMask.",
-        "question3": "Welche Vorteile bietet QUBEX?",
-        "answer3": "QUBEX bietet einfache und sichere Transaktionen sowie Cross-Chain-Unterstützung.",
-        "question4": "Wie kann ich starten?",
-        "answer4": "Verbinde deine Wallet, installiere den QUBIC Snap und beginne mit dem Tausch von Vermögenswerten.",
-        "question5": "Wo finde ich weitere Informationen?",
-        "answer5": "Weitere Details findest du in der Dokumentation und auf unserer Website."
+        "question1": "Was ist Qubex?",
+        "answer1": "Qubex ist eine dezentrale Börse (DEX), die innerhalb des Qubic-Ökosystems aufgebaut ist. Sie ermöglicht es Ihnen, Vermögenswerte zu handeln und Token zu tauschen – darunter USDT, USDC, ETH und QUBIC – sowie einzigartige Qubic-Smart-Contract-Anteile zu handeln.",
+        "question2": "Welche Tokens und Handelspaare werden unterstützt?",
+        "answer2": "Zunächst können Sie USDT, USDC, ETH, QUBIC und Qubic-Smart-Contract-Anteile handeln. Weitere Handelspaare werden hinzugefügt, während wir unser Ökosystem weiter ausbauen.",
+        "question3": "Wie beginne ich mit dem Handel auf Qubex?",
+        "answer3": "Verbinden Sie einfach eine unterstützte Web3-Wallet (z. B. MetaMask oder WalletConnect), wählen Sie das gewünschte Handelspaar aus und starten Sie Ihren Swap über unsere benutzerfreundliche Oberfläche.",
+        "question4": "Welche Gebühren fallen beim Handel an?",
+        "answer4": "Für jede Transaktion wird eine Gebühr von 0,15% erhoben, die wie folgt aufgeteilt wird:\n• 5% für den Qubic Ecosystem Fund\n• 15% zur Unterstützung der Qubex-Plattform\n• 80% an Liquiditätsanbieter (abhängig von den Marktbedingungen)",
+        "question5": "Ist Qubex sicher?",
+        "answer5": "Absolut. Wir verwenden branchenübliche Verschlüsselung, führen regelmäßige Sicherheitsüberprüfungen durch und implementieren sichere Datenspeicherungspraktiken, um Ihre Transaktionen und persönlichen Informationen zu schützen.",
+        "question6": "Was bedeutet es, dass Qubex sich in der Entwicklungsphase befindet?",
+        "answer6": "Qubex wird aktiv entwickelt und optimiert. Viele Funktionen sind bereits voll funktionsfähig, während einige noch in der Entwicklung sind und mit der Weiterentwicklung unserer Plattform aktualisiert werden.",
+        "question7": "Wie verbinde ich meine Wallet?",
+        "answer7": "Klicken Sie auf den Button „Wallet verbinden“ auf unserer Plattform und folgen Sie den Anweisungen, um Ihre bevorzugte Web3-Wallet (z. B. MetaMask oder WalletConnect) zu verknüpfen.",
+        "question8": "Wie werden meine persönlichen Daten behandelt?",
+        "answer8": "Wir erheben nur die notwendigen Daten (wie Wallet-Adressen und Transaktionsdetails) und verwenden strenge Sicherheitsmaßnahmen, um Ihre Informationen zu schützen. Ihre Privatsphäre steht für uns an erster Stelle.",
+        "question9": "Wo kann ich Unterstützung erhalten, wenn ich Probleme habe?",
+        "answer9": "Unser Support-Team steht Ihnen zur Verfügung. Sie erreichen uns per E-Mail unter support@qubex.io, über den Live-Chat während der Geschäftszeiten oder im Hilfe-Center für weitere Unterstützung.",
+        "question10": "Warum Qubic?",
+        "answer10": "Qubic ist ein hochmodernes Blockchain-Ökosystem, das auf Skalierbarkeit, Sicherheit und Interoperabilität ausgelegt ist. Mit fortschrittlichen Smart-Contract-Funktionen, dezentralen Oracle-Netzwerken und robusten kryptografischen Protokollen ermöglicht Qubic Entwicklern, innovative und zuverlässige dezentrale Anwendungen zu erstellen. Zudem ist Qubic bekannt für eine der besten und unterstützendsten Communities im Raum, was es zu einem idealen Ökosystem für den Start und das Wachstum neuer Projekte macht.",
+        "question11": "Was sind Smart-Contract-Anteile?",
+        "answer11": "Smart-Contract-Anteile repräsentieren einen Bruchteil des Eigentums oder Partizipationsrechte an den Smart Contracts von Qubic. Sie ermöglichen es den Inhabern, zu handeln, potenziell Dividenden zu verdienen und am Erfolg der zugrunde liegenden Smart Contracts teilzuhaben. Dieser innovative Ansatz unterscheidet Qubex im sich entwickelnden DeFi-Bereich.",
+        "question12": "Wie kann ich über den Fortschritt von Qubex informiert bleiben?",
+        "answer12": "Bleiben Sie informiert, indem Sie unsere offizielle Website besuchen, unserem X-Kanal unter https://x.com/QubexExchange folgen oder sich mit unserer Qubic Discord-Community verbinden. Dort erhalten Sie die neuesten Ankündigungen, Updates und Veröffentlichungen neuer Funktionen. Wir freuen uns auch über Ihr Feedback.",
+        "question13": "Hat QUBEX mehrere Adressen?",
+        "answer13": "Nein, Qubex verwendet eine zentrale Plattformadresse, um eine konsistente Nutzung zu gewährleisten.",
+        "question14": "Teilen Sie meine Wallet-Informationen mit Dritten?",
+        "answer14": "Nein, Ihre Wallet-Daten werden ausschließlich zur Durchführung der Transaktionen verwendet und nicht an Dritte weitergegeben.",
+        "question15": "Was passiert, wenn ich QUBIC mit meiner nicht-QUBIC-Wallet kaufe?",
+        "answer15": "Falls Sie QUBIC mit einer nicht-QUBIC-Wallet kaufen, werden Sie aufgefordert, zusätzlich Ihre QUBIC-Wallet zu verbinden."
       }
+    },
+    "about": {
+      "title": "Über uns",
+      "welcome": "Willkommen bei Qubex",
+      "description": "Qubex ist eine community-gesteuerte dezentrale Börse, die innerhalb des Qubic-Ökosystems aufgebaut ist. Unsere Plattform ermöglicht es Ihnen, Vermögenswerte zu handeln und Token zu tauschen – darunter USDT, USDC, ETH und QUBIC – sowie die einzigartigen Qubic Smart Contract-Anteile zu handeln. Mit einem Bekenntnis zu Innovation planen wir, kontinuierlich neue Handelspaare einzuführen und unser Angebot zu erweitern, einschließlich einer zukünftigen FIAT-Anbindung für noch größere Flexibilität.",
+      "missionTitle": "Unsere Mission",
+      "missionDescription": "Wir setzen uns dafür ein, ein sicheres, gebührenarmes Handelserlebnis zu bieten, das nicht nur den aktuellen Marktbedürfnissen entspricht, sondern sich auch mit diesen weiterentwickelt. Ein Teil jeder Transaktionsgebühr (5%) wird in den Qubic Ecosystem Fund reinvestiert, um stetiges Wachstum und die Entwicklung der Community zu unterstützen.",
+      "teamTitle": "Das Team",
+      "team": {
+        "member1": "Robert Lisac: Führt technische Exzellenz mit über 7 Jahren Blockchain-Innovation.",
+        "member2": "Alex Wild: Leitet die Produktstrategie mit umfassender Expertise in Finanzen und Geschäftsentwicklung.",
+        "member3": "Johannes Just: TBD",
+        "member4": "Entwicklung & Design Teams: Ein engagiertes Team von Blockchain-Entwicklern und UX/UI-Experten, das sich dem Aufbau einer robusten, benutzerfreundlichen Plattform widmet."
+      }
+    },
+    "privacyPolicy": {
+      "title": "Datenschutzrichtlinie",
+      "subtitle": "Ihre Privatsphäre, unsere Priorität",
+      "intro": "Bei Qubex respektieren wir Ihre Privatsphäre und verpflichten uns, Ihre persönlichen und transaktionalen Daten zu schützen. Auch wenn wir uns derzeit in der Entwicklungsphase befinden, sind unsere Praktiken darauf ausgerichtet, den höchsten Industriestandards zu entsprechen.",
+      "whatWeCollectTitle": "Was wir erheben",
+      "whatWeCollect": {
+        "userData": "Nutzerdaten: Wallet-Adressen, E-Mail-Adressen und alle Informationen, die Sie während der Nutzung der Plattform angeben.",
+        "transactionData": "Transaktionsdaten: Details zu Token-Swaps, Vermögenshandel und Interaktionen mit Qubic Smart Contract-Anteilen.",
+        "usageData": "Nutzungsdaten: Nicht-persönliche Informationen, die uns helfen, die Leistung der Plattform und das Nutzererlebnis zu verbessern."
+      },
+      "howWeUseTitle": "Wie wir Ihre Informationen nutzen",
+      "howWeUse": [
+        "Zur Erleichterung des sicheren Handels mit Vermögenswerten und Token-Austausch.",
+        "Zur Personalisierung und Verbesserung Ihrer Erfahrung auf Qubex.",
+        "Für Sicherheits-, Analyse- und Fehlerbehebungszwecke."
+      ],
+      "securityMeasuresTitle": "Sicherheitsmaßnahmen",
+      "securityMeasures": "Wir implementieren branchenübliche Verschlüsselung, regelmäßige Audits und sichere Offsite-Backups. Daten werden nur mit vertrauenswürdigen Dienstleistern geteilt, wenn dies zur Optimierung der Plattformleistung notwendig ist.",
+      "yourRightsTitle": "Ihre Rechte",
+      "yourRights": "Sie können jederzeit Zugang, Korrektur oder Löschung Ihrer Daten anfordern. Bitte kontaktieren Sie unser Support-Team bei Datenschutzfragen."
+    },
+    "terms": {
+      "title": "Nutzungsbedingungen",
+      "subtitle": "Bitte sorgfältig lesen",
+      "intro": "Durch die Nutzung von Qubex stimmen Sie unseren Nutzungsbedingungen zu. Diese Bedingungen sind darauf ausgerichtet, ein sicheres, transparentes und faires Handelsumfeld zu gewährleisten.",
+      "usingQubexTitle": "Nutzung von Qubex",
+      "usingQubex": {
+        "access": "Zugang: Die Plattform ist über unterstützte Web3 Wallets (z.B. MetaMask, WalletConnect) zugänglich.",
+        "responsibilities": "Nutzerverantwortung: Nutzer müssen alle geltenden Gesetze einhalten und die Plattform verantwortungsbewusst nutzen.",
+        "risk": "Risikohinweis: Der Handel mit Kryptowährungen beinhaltet Marktschwankungen, technische Risiken und potenzielle finanzielle Verluste. Bitte handeln Sie verantwortungsbewusst."
+      },
+      "tradingTitle": "Handel und Transaktionen",
+      "trading": {
+        "pairs": "Handelspaare: Zunächst unterstützt Qubex den Handel zwischen USDT, USDC, ETH und QUBIC sowie den Austausch von Qubic Smart Contract-Anteilen. Weitere Handelspaare werden in Zukunft hinzugefügt, während wir unser Ökosystem erweitern.",
+        "fee": "Gebührenstruktur: Auf jede Transaktion wird eine Gebühr von 0,15% erhoben:",
+        "feeBreakdown": {
+          "fund": "5% für den Qubic Ecosystem Fund",
+          "platform": "15% zur Unterstützung der Qubex-Plattform",
+          "liquidity": "80% an Liquiditätsanbieter (je nach Marktbedingungen)"
+        },
+        "noGuarantees": "Keine Garantien: Qubex wird \"as is\" bereitgestellt, ohne Garantien. Der Handel birgt inhärente Risiken."
+      },
+      "disputeTitle": "Streitbeilegung",
+      "dispute": "Alle Streitigkeiten werden durch Schiedsverfahren oder ein vereinbartes Verfahren gelöst. Durch die Nutzung von Qubex akzeptieren Sie diese Bedingungen.",
+      "modificationsTitle": "Änderungen",
+      "modifications": "Wir behalten uns das Recht vor, diese Nutzungsbedingungen zu aktualisieren. Die fortgesetzte Nutzung von Qubex gilt als Zustimmung zu den Änderungen."
+    },
+    "imprint": {
+      "title": "Impressum",
+      "projectDetailsTitle": "Projektdetails",
+      "projectName": "Projektname: Qubex",
+      "platform": "Plattform: Eine dezentrale Börse innerhalb des Qubic-Ökosystems, die den Handel mit Vermögenswerten, den Token-Austausch und den einzigartigen Handel mit Qubic-Smart-Contract-Anteilen anbietet.",
+      "team": "Team: Geführt von erfahrenen Fachleuten, darunter Robert Lisac und Alex Wild.",
+      "legalNoticeTitle": "Rechtlicher Hinweis",
+      "legalNotice": "Qubex befindet sich derzeit in der Entwicklungsphase und ist noch nicht als juristische Person registriert. Offizielle rechtliche Informationen und Offenlegungen werden nach der Gründung unserer juristischen Person aktualisiert.",
+      "disclaimerTitle": "Haftungsausschluss",
+      "disclaimer": "Die bereitgestellten Informationen dienen nur zu Informationszwecken. Qubex übernimmt keine Haftung für Ungenauigkeiten oder Auslassungen. Die Nutzung der Plattform erfolgt auf eigene Gefahr."
     }
   }
 }
