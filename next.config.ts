@@ -6,10 +6,10 @@ const withNextIntl = createNextIntlPlugin();
 const nextConfig: NextConfig = {
     env: {},
 
-    i18n: {
-        locales: ['en', 'de'],
-        defaultLocale: 'en'
-    }
+    // i18n: {
+    //     locales: ['en', 'de'],
+    //     defaultLocale: 'en'
+    // }
 };
 
 // const sentryConfig = {

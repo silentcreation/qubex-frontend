@@ -9,6 +9,7 @@ pipelines:
           caches:
             - node
           script:
+            - umask 000
             - printf "NODE_ENV=production\nNEXT_PUBLIC_WALLETCONNECT_REOWN_PROJECT_ID=${NEXT_PUBLIC_WALLETCONNECT_REOWN_PROJECT_ID}\nNEXT_PUBLIC_SNAP_ID=${NEXT_PUBLIC_SNAP_ID}\nNEXT_PUBLIC_SNAP_ID_DEV=${NEXT_PUBLIC_SNAP_ID_DEV}\nNEXT_PUBLIC_SUPPORT_URL=${NEXT_PUBLIC_SUPPORT_URL}\nNEXT_PUBLIC_QX_API_URL=${NEXT_PUBLIC_QX_API_URL}\nPORT=${PORT_PRODUCTION}\n" > .env
             - yarn install --frozen-lockfile
             - yarn build
