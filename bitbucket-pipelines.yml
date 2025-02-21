@@ -10,21 +10,21 @@ pipelines:
             - node
           script:
             - printf "NODE_ENV=production\nNEXT_PUBLIC_WALLETCONNECT_REOWN_PROJECT_ID=${NEXT_PUBLIC_WALLETCONNECT_REOWN_PROJECT_ID}\nNEXT_PUBLIC_SNAP_ID=${NEXT_PUBLIC_SNAP_ID}\nNEXT_PUBLIC_SNAP_ID_DEV=${NEXT_PUBLIC_SNAP_ID_DEV}\nNEXT_PUBLIC_SUPPORT_URL=${NEXT_PUBLIC_SUPPORT_URL}\nNEXT_PUBLIC_QX_API_URL=${NEXT_PUBLIC_QX_API_URL}\nPORT=${PORT_PRODUCTION}\n" > .env
-            - npm ci
-            - npm run build
+            - yarn install --frozen-lockfile
+            - yarn build
           artifacts:
             - .next/**
             - public/**
             - next.config.js
             - package.json
-            - package-lock.json
+            - yarn.lock
             - .env
 
       - step:
           name: "Deploy to AS"
           script:
             - mkdir production-as
-            - mv .next/ .env next.config.js package.json public/ package-lock.json production-as
+            - mv .next/ .env next.config.js package.json public/ yarn.lock production-as
             - ssh ${SERVER_USER}@${IP_AS} "test -d ${APP_PATH_AS} || mkdir -p ${APP_PATH_AS}"
             - pipe: atlassian/rsync-deploy:0.6.0
               variables:
@@ -32,14 +32,14 @@ pipelines:
                 SERVER: ${IP_AS}
                 REMOTE_PATH: "${APP_PATH_AS}/"
                 LOCAL_PATH: "production-as"
-            - ssh -tt ${SERVER_USER}@${IP_AS} "cd ${APP_PATH_AS}/ && printf \"module.exports={apps:[{name:'${BITBUCKET_REPO_SLUG}-production',exec_mode:'cluster',instances:2,script:'npm',args:'run start'}]}\" > ecosystem.config.js && npm ci && pm2 start ecosystem.config.js"
+            - ssh -tt ${SERVER_USER}@${IP_AS} "cd ${APP_PATH_AS}/ && printf \"module.exports={apps:[{name:'${BITBUCKET_REPO_SLUG}-production',exec_mode:'cluster',instances:2,script:'yarn',args:'start'}]}\" > ecosystem.config.js && yarn install --frozen-lockfile && pm2 start ecosystem.config.js"
             - npx wait-on "http://${HOST_AS}:${PORT_PRODUCTION}/health" --timeout=120000
 
       - step:
           name: "Deploy to US"
           script:
             - mkdir production-us
-            - mv .next/ .env next.config.js package.json public/ package-lock.json production-us
+            - mv .next/ .env next.config.js package.json public/ yarn.lock production-us
             - ssh ${SERVER_USER}@${IP_US} "test -d ${APP_PATH_US} || mkdir -p ${APP_PATH_US}"
             - pipe: atlassian/rsync-deploy:0.6.0
               variables:
@@ -47,14 +47,14 @@ pipelines:
                 SERVER: ${IP_US}
                 REMOTE_PATH: "${APP_PATH_US}/"
                 LOCAL_PATH: "production-us"
-            - ssh -tt ${SERVER_USER}@${IP_US} "cd ${APP_PATH_US}/ && printf \"module.exports={apps:[{name:'${BITBUCKET_REPO_SLUG}-production',exec_mode:'cluster',instances:2,script:'npm',args:'run start'}]}\" > ecosystem.config.js && npm ci && pm2 start ecosystem.config.js"
+            - ssh -tt ${SERVER_USER}@${IP_US} "cd ${APP_PATH_US}/ && printf \"module.exports={apps:[{name:'${BITBUCKET_REPO_SLUG}-production',exec_mode:'cluster',instances:2,script:'yarn',args:'start'}]}\" > ecosystem.config.js && yarn install --frozen-lockfile && pm2 start ecosystem.config.js"
             - npx wait-on "http://${HOST_US}:${PORT_PRODUCTION}/health" --timeout=120000
 
       - step:
           name: "Deploy to EU"
           script:
             - mkdir production-eu
-            - mv .next/ .env next.config.js package.json public/ package-lock.json production-eu
+            - mv .next/ .env next.config.js package.json public/ yarn.lock production-eu
             - ssh ${SERVER_USER}@${IP_EU} "test -d ${APP_PATH_EU} || mkdir -p ${APP_PATH_EU}"
             - pipe: atlassian/rsync-deploy:0.6.0
               variables:
@@ -62,5 +62,5 @@ pipelines:
                 SERVER: ${IP_EU}
                 REMOTE_PATH: "${APP_PATH_EU}/"
                 LOCAL_PATH: "production-eu"
-            - ssh -tt ${SERVER_USER}@${IP_EU} "cd ${APP_PATH_EU}/ && printf \"module.exports={apps:[{name:'${BITBUCKET_REPO_SLUG}-production',exec_mode:'cluster',instances:2,script:'npm',args:'run start'}]}\" > ecosystem.config.js && npm ci && pm2 start ecosystem.config.js"
+            - ssh -tt ${SERVER_USER}@${IP_EU} "cd ${APP_PATH_EU}/ && printf \"module.exports={apps:[{name:'${BITBUCKET_REPO_SLUG}-production',exec_mode:'cluster',instances:2,script:'yarn',args:'start'}]}\" > ecosystem.config.js && yarn install --frozen-lockfile && pm2 start ecosystem.config.js"
             - npx wait-on "http://${HOST_EU}:${PORT_PRODUCTION}/health" --timeout=120000
